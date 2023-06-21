@@ -19,21 +19,18 @@ type PropsType = {
 }
 
 const Characters = (props: PropsType) => {
+
 	const { characters } = props
+
+	const charactersList = characters.results.map(charr => {
+		<div key={charr.id}>{charr.name}</div>
+	})
 	return (
-		<div>
-			<PageWrapper>
-				<Header />
-				<Image
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
-				<p>Characters</p>
-			</PageWrapper>
-		</div>
+		<PageWrapper>
+			<Header />
+			<p>Characters</p>
+			{charactersList}
+		</PageWrapper>
 	)
 }
 
